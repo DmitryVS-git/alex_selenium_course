@@ -5,10 +5,12 @@ import pytest
 def test_method_1():
     print("Метод 1")
 
+@pytest.mark.smoke
 @pytest.mark.run(order=1)
 def test_method_2():
     print("Метод 2")
 
+@pytest.mark.skip
 def test_method_3():
     print("Метод 3")
 
