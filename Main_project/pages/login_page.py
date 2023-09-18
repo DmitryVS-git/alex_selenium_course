@@ -19,6 +19,7 @@ class LoginPage(Base):
     user_name = "user-name"
     password = "password"
     login_button = "login-button"
+    check_word = ".title"
 
     # Getters
     def get_user_name(self):
@@ -30,6 +31,9 @@ class LoginPage(Base):
     def get_login_button(self):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.login_button)))
 
+    def get_check_word(self):
+        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.check_word)))
+    
     # Actions
     def input_user_name(self, user_name):
         self.get_user_name().send_keys(user_name)
@@ -54,4 +58,6 @@ class LoginPage(Base):
         self.input_user_name("standard_user")
         self.input_password("secret_sauce")
         self.click_login_button()
+
+        self.assert_word(self.get_check_word(), "Products")
         '''// Login'''
