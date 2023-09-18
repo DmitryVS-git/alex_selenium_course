@@ -33,7 +33,7 @@ class LoginPage(Base):
 
     def get_check_word(self):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.check_word)))
-    
+
     # Actions
     def input_user_name(self, user_name):
         self.get_user_name().send_keys(user_name)
@@ -49,7 +49,6 @@ class LoginPage(Base):
 
     # Methods
     def authorization(self):
-        '''Login'''
         self.driver.get(self.url)
         self.driver.maximize_window()
 
@@ -60,4 +59,3 @@ class LoginPage(Base):
         self.click_login_button()
 
         self.assert_word(self.get_check_word(), "Products")
-        '''// Login'''

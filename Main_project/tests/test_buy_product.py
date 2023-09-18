@@ -1,4 +1,5 @@
 from pages.login_page import LoginPage
+from pages.main_page import MainPage
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -18,8 +19,8 @@ def test_buy_product():
     login = LoginPage(driver)
     login.authorization()
 
-    cart = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "shopping_cart_container")))
-    cart.click()
+    mp = MainPage(driver)
+    mp.select_product()
     print("Enter the cart")
 
     print("=== The test was successful! ===")
