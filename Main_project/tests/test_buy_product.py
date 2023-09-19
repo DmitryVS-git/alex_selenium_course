@@ -3,6 +3,7 @@ import time
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.cart_page import CartPage
+from pages.checkout_user_info_page import CheckUserInfoPage
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -29,8 +30,13 @@ def test_buy_product():
 
     cp = CartPage(driver)
     cp.click_button_checkout()
+    print("Go to the checkout information page")
+
+    cuip = CheckUserInfoPage(driver)
+    cuip.input_information()
+    print("Go to the overview page")
+
     time.sleep(2)
-    print("Go to checkout information page")
 
     print("=== The test was successful! ===")
 

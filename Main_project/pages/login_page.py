@@ -5,11 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 
-
 class LoginPage(Base):
-
     url = "https://www.saucedemo.com"
-
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -18,7 +15,7 @@ class LoginPage(Base):
     # Locators
     user_name = "user-name"
     password = "password"
-    login_button = "login-button"
+    button_login = "login-button"
     check_word = ".title"
 
     # Getters
@@ -29,10 +26,11 @@ class LoginPage(Base):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.password)))
 
     def get_login_button(self):
-        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.login_button)))
+        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.button_login)))
 
     def get_check_word(self):
-        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.check_word)))
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, self.check_word)))
 
     # Actions
     def input_user_name(self, user_name):
