@@ -16,7 +16,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
 
-def test_link_product():
+def test_link_product(set_up):
     options = Options()
     options.add_experimental_option("excludeSwitches", ['enable-logging'])
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
@@ -28,8 +28,5 @@ def test_link_product():
 
     mp = MainPage(driver)
     mp.select_sidebar_menu_about()
-
-
-
 
     print("=== The test was successful! ===")
