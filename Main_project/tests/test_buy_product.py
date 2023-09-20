@@ -1,5 +1,6 @@
 import time
 
+from pages.finish_page import FinishPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.cart_page import CartPage
@@ -39,6 +40,9 @@ def test_buy_product():
 
     pp = PaymentPage(driver)
     pp.payment()
+
+    fp = FinishPage(driver)
+    fp.make_screenshot()
 
 
     print("=== The test was successful! ===")
