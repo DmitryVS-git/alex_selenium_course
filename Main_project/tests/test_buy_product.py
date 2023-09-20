@@ -42,7 +42,7 @@ def test_buy_product():
     pp.payment()
 
     fp = FinishPage(driver)
-    fp.make_screenshot()
+    fp.finish()
 
 
     print("=== The test was successful! ===")
